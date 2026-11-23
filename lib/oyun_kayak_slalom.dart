@@ -5,7 +5,6 @@ import 'package:arcade_motoru/kayak.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const kayakId = 'oyun-kayak-slalom';
 
@@ -88,7 +87,7 @@ final kayakConfig = GameConfig(
   rules: kayakRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => kayakRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => kayakRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintSki(c, s, p, t);
